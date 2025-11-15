@@ -16,7 +16,10 @@
             <h1>심즈4 보유팩 선택기</h1>
         </div>
         <div class="header-right">
-            <button id="openSettingsButton" type="button">설정 메뉴 열기</button>
+            <button id="openSettingsButton" type="button">
+                <span class="desktop-text">설정 메뉴 열기</span>
+                <span class="mobile-text">설정</span>
+            </button>
         </div>
     </header>
 
@@ -29,8 +32,6 @@
         <div class="game-options-body">
             <div class="menu-sidebar">
                 <button class="menu-item active" id="displayMenu">화면</button>
-                <button class="menu-item" id="soundMenu">소리</button>
-                <button class="menu-item" id="musicMenu">음악</button>
                 <button class="menu-item" id="otherMenu">기타</button>
             </div>
 
@@ -80,14 +81,6 @@
                     </div>
                 </div>
 
-                <div id="soundSettings" class="settings-section">
-                    <h4>소리</h4>
-                    <p></p>
-                </div>
-                <div id="musicSettings" class="settings-section">
-                    <h4>음악</h4>
-                    <p></p>
-                </div>
                 <div id="otherSettings" class="settings-section">
                     <h4>기타</h4>
                     <div class="display-settings-col">
@@ -109,7 +102,6 @@
 
         <div class="game-options-footer">
             <button class="action-button apply-button" type="button">기본 설정 복구</button>
-            <button class="action-button apply-button" type="button" onclick="window.open('https://www.youtube.com/@방장라라')">방장 라라 유튜브</button>
             <button class="action-button apply-button" type="button">변경 적용</button>
         </div>
     </div>

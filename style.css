@@ -1,3 +1,7 @@
+.mobile-text {
+    display: none;
+}
+
 /* =========================================
    기본 및 폰트 설정
    ========================================= */
@@ -509,10 +513,10 @@ body.show-names .pack-name {
 }
 
 /* 모바일 반응형 스타일 */
-/* 1. 화면 너비가 900px (설정 UI 너비) 이하일 때 */
+/* 화면 너비가 900px (설정 UI 너비) 이하일 때 */
 @media (max-width: 900px) {
 
-    /* 1-1. 설정 UI (가장 중요) */
+    /* 설정 UI (가장 중요) */
     .game-options-container {
         /* 고정 너비 900px 대신, 화면의 95% 너비를 사용 */
         width: 95vw; 
@@ -523,11 +527,12 @@ body.show-names .pack-name {
         font-size: 0.95rem;
     }
 
-    /* 1-2. 설정 UI 내부 (사이드바 + 콘텐츠) */
+    /* 설정 UI 내부 (사이드바 + 콘텐츠) */
     .game-options-body {
         /* 가로 2열 배치 -> 세로 1열로 쌓기 */
         flex-direction: column;
         overflow-y: auto; /* 본문 내용이 길어지면 스크롤 */
+        border-top: 1px solid #ccc; /* 상단 구분선 추가 */
     }
     
     .menu-sidebar {
@@ -538,13 +543,13 @@ body.show-names .pack-name {
         border-bottom: 1px solid #ccc; /* 아래쪽 경계선 추가 */
     }
     
-    /* 1-3. '디스플레이' 섹션 2열 그리드 -> 1열로 */
+    /* '디스플레이' 섹션 2열 그리드 -> 1열로 */
     .display-settings-grid {
         grid-template-columns: 1fr; /* 1열로 쌓기 */
         gap: 15px;
     }
 
-    /* 1-4. 최상단 헤더 */
+    /* 최상단 헤더 */
     .top-header {
         padding: 0 10px; /* 좌우 여백 줄이기 */
     }
@@ -557,28 +562,48 @@ body.show-names .pack-name {
         padding: 8px 12px; /* 버튼 크기 줄이기 */
         font-size: 1em;
     }
+
+    /* '설정' 버튼 텍스트 교체 (데스크탑 숨김, 모바일 표시) */
+    #openSettingsButton .desktop-text {
+        display: none;
+    }
+    #openSettingsButton .mobile-text {
+        display: inline;
+    }
+    #openSettingsButton {
+        padding: 8px 16px;
+    }
+
+    /* 설정 메뉴 사이드바 숨기기 */
+    .menu-sidebar {
+        display: none;
+    }
+
+    /* 설정 메뉴 하단 버튼 3개 숨기기 */
+    .game-options-footer {
+        display: none;
+    }
+
+    .settings-content {
+        height: 100%; /* 남은 높이를 꽉 채움 */
+    }
 }
 
 
-/* 2. 화면 너비가 480px (아주 작은 모바일) 이하일 때 */
+/* 화면 너비가 480px (아주 작은 모바일) 이하일 때 */
 @media (max-width: 480px) {
-
-    /* 2-1. 헤더 제목 숨기기 (로고만 표시) */
-    .top-header h1 {
-         display: none; 
-    }
     
     #openSettingsButton {
         font-size: 0.9em;
     }
     
-    /* 2-2. 아이콘 그리드 최소 크기 조절 */
+    /* 아이콘 그리드 최소 크기 조절 */
     .dlc-grid {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         gap: 10px;
     }
     
-    /* 2-3. DLC 섹션 제목 폰트 줄이기 */
+    /* DLC 섹션 제목 폰트 줄이기 */
     h2 {
         font-size: 1.2rem;
     }
