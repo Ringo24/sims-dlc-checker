@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심즈4 보유팩 선택기</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Do Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <header class="top-header">
+        <div class="header-left">
+            <img src="images/logo.png" alt="Plumbob Logo" class="plumbob-logo">
+            <h1>심즈4 보유팩 선택기</h1>
+        </div>
+        <div class="header-right">
+            <button id="openSettingsButton" type="button">설정 메뉴 열기</button>
+        </div>
+    </header>
+
+    <div class="game-options-container">
+        <div class="game-options-header">
+            <h3>OPTIONS</h3>
+            <button class="close-button" type="button">x</button>
+        </div>
+
+        <div class="game-options-body">
+            <div class="menu-sidebar">
+                <button class="menu-item active" id="displayMenu">화면</button>
+                <button class="menu-item" id="soundMenu">소리</button>
+                <button class="menu-item" id="musicMenu">음악</button>
+                <button class="menu-item" id="otherMenu">기타</button>
+            </div>
+
+            <div class="settings-content">
+                <div id="displaySettings" class="settings-section active">
+                    
+                    <h4>디스플레이</h4>
+
+                    <div class="display-settings-grid">
+                        
+                        <div class="display-settings-col">
+                            <button id="selectAllButton" type="button" class="action-button apply-button">
+                                올 팩
+                            </button>
+                            <button id="deselectAllButton" type="button" class="action-button apply-button">
+                                기본 게임
+                            </button>
+                        </div>
+                        
+                        <div class="display-settings-col">
+                            <div class="setting-row">
+                                <label for="showPackNames">
+                                    <label for="themeSelect">팩 이름 표시: </label>
+                                    <input type="checkbox" id="showPackNames">
+                                    <span class="custom-checkbox"></span> 
+                                </label>
+                            </div>
+                            <div class="setting-row">
+                                <label for="themeSelect">   테마 선택: </label>
+                                <select id="themeSelect">
+                                    <option value="light">라이트 모드</option>
+                                    <option value="dark">다크 모드</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div> <h4>저장</h4>
+                    <div class="setting-row">
+                        <label for="resolution">그림 저장 해상도: </label>
+                        <select id="resolution">
+                            <option value="FHD">FHD (1920px)</option>
+                            <option value="4K">4K (3840px)</option>
+                        </select>
+                    </div>
+                    <div class="setting-row">
+                        <button id="saveButton" class="action-button apply-button" type="button">그림으로 저장</button>
+                    </div>
+                </div>
+
+                <div id="soundSettings" class="settings-section">
+                    <h4>소리</h4>
+                    <p></p>
+                </div>
+                <div id="musicSettings" class="settings-section">
+                    <h4>음악</h4>
+                    <p></p>
+                </div>
+                <div id="otherSettings" class="settings-section">
+                    <h4>기타</h4>
+                    <div class="display-settings-col">
+                        <div class="setting-row">
+                            <label for="themeSelect">커스텀 콘텐츠 및 모드 활성화: </label>
+                            <input type="checkbox" >
+                            <span class="custom-checkbox"></span> 
+                        </div>
+                        <div class="setting-row">
+                            <label for="themeSelect">스크립트 모드 허용: </label>
+                            <input type="checkbox" >
+                            <span class="custom-checkbox"></span> 
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="game-options-footer">
+            <button class="action-button apply-button" type="button">기본 설정 복구</button>
+            <button class="action-button apply-button" type="button" onclick="window.open('https://www.youtube.com/@방장라라')">방장 라라 유튜브</button>
+            <button class="action-button apply-button" type="button">변경 적용</button>
+        </div>
+    </div>
+
+    <div id="dlc-checklist">
+
+        <div class="dlc-grid expansion-pack">
+            <div class="dlc-item" data-pack-id="ep01"><img src="images/EP1.png" alt="가자! 일터로"><span class="pack-name">가자 일터로</span></div>
+            <div class="dlc-item" data-pack-id="ep02"><img src="images/EP2.png" alt="모두 함께 놀아요"><span class="pack-name">모두함께놀아요</span></div>
+            <div class="dlc-item" data-pack-id="ep03"><img src="images/EP3.png" alt="시끌벅적 도시 생활"><span class="pack-name">도시생활</span></div>
+            <div class="dlc-item" data-pack-id="ep04"><img src="images/EP4.png" alt="고양이와 강아지"><span class="pack-name">고양이와강아지</span></div>
+            <div class="dlc-item" data-pack-id="ep05"><img src="images/EP5.png" alt="사계절 이야기"><span class="pack-name">사계절이야기</span></div>
+            <div class="dlc-item" data-pack-id="ep06"><img src="images/EP6.png" alt="스타 탄생"><span class="pack-name">스타탄생</span></div>
+            <div class="dlc-item" data-pack-id="ep07"><img src="images/EP7.png" alt="아일랜드 라이프"><span class="pack-name">아일랜드라이프</span></div>
+            <div class="dlc-item" data-pack-id="ep08"><img src="images/EP8.png" alt="캠퍼스 라이프"><span class="pack-name">캠퍼스라이프</span></div>
+            <div class="dlc-item" data-pack-id="ep09"><img src="images/EP9.png" alt="에코 라이프"><span class="pack-name">에코라이프</span></div>
+            <div class="dlc-item" data-pack-id="ep10"><img src="images/EP10.png" alt="겨울 이야기"><span class="pack-name">겨울이야기</span></div>
+            <div class="dlc-item" data-pack-id="ep11"><img src="images/EP11.png" alt="코티지 라이프"><span class="pack-name">코티지라이프</span></div>
+            <div class="dlc-item" data-pack-id="ep12"><img src="images/EP12.png" alt="하이스쿨 라이프"><span class="pack-name">하이스쿨라이프</span></div>
+            <div class="dlc-item" data-pack-id="ep13"><img src="images/EP13.png" alt="그로잉 투게더"><span class="pack-name">그로잉투게더</span></div>
+            <div class="dlc-item" data-pack-id="ep14"><img src="images/EP14.png" alt="즐거운 목장"><span class="pack-name">즐거운 목장</span></div>
+            <div class="dlc-item" data-pack-id="ep15"><img src="images/EP15.png" alt="다세대 주택"><span class="pack-name">다세대 주택</span></div>
+            <div class="dlc-item" data-pack-id="ep16"><img src="images/EP16.png" alt="심즈의 사랑법"><span class="pack-name">심즈의 사랑법</span></div>
+            <div class="dlc-item" data-pack-id="ep17"><img src="images/EP17.png" alt="삶과 죽음"><span class="pack-name">삶과 죽음</span></div>
+            <div class="dlc-item" data-pack-id="ep18"><img src="images/EP18.png" alt="취미와 사업"><span class="pack-name">취미와 사업</span></div>
+            <div class="dlc-item" data-pack-id="ep19"><img src="images/EP19.png" alt="신비로운 자연"><span class="pack-name">신비로운 자연</span></div>
+            <div class="dlc-item" data-pack-id="ep20"><img src="images/EP20.png" alt="모험을 떠나요"><span class="pack-name">모험을 떠나요</span></div>
+        </div>
+
+        <div class="dlc-grid game-pack">
+            <div class="dlc-item"><img src="images/GP1.png" alt="캠핑을 떠나요"><span class="pack-name">캠핑을떠나요</span></div>
+            <div class="dlc-item"><img src="images/GP2.png" alt="스파 데이"><span class="pack-name">스파데이</span></div>
+            <div class="dlc-item"><img src="images/GP3.png" alt="외식하기 좋은 날"><span class="pack-name">외식하기좋은날</span></div>
+            <div class="dlc-item"><img src="images/GP4.png" alt="뱀파이어"><span class="pack-name">뱀파이어</span></div>
+            <div class="dlc-item"><img src="images/GP5.png" alt="육아 일기"><span class="pack-name">육아일기</span></div>
+            <div class="dlc-item"><img src="images/GP6.png" alt="정글 어드벤처"><span class="pack-name">정글어드벤처</span></div>
+            <div class="dlc-item"><img src="images/GP7.png" alt="스트레인저빌"><span class="pack-name">스트레인저빌</span></div>
+            <div class="dlc-item"><img src="images/GP8.png" alt="마법의 나라"><span class="pack-name">마법의 나라</span></div>
+            <div class="dlc-item"><img src="images/GP9.png" alt="스타워즈 바투"><span class="pack-name">스타워즈 바투</span></div>
+            <div class="dlc-item"><img src="images/GP10.png" alt="드림하우스"><span class="pack-name">드림하우스</span></div>
+            <div class="dlc-item"><img src="images/GP11.png" alt="결혼 이야기"><span class="pack-name">결혼이야기</span></div>
+            <div class="dlc-item"><img src="images/GP12.png" alt="늑대인간"><span class="pack-name">늑대인간</span></div>
+        </div>
+
+        <div class="dlc-grid stuff-pack">
+            <div class="dlc-item"><img src="images/SP1.png" alt="럭셔리파티"><span class="pack-name">럭셔리 파티</span></div>
+            <div class="dlc-item"><img src="images/SP2.png" alt="완벽한테라스"><span class="pack-name">완벽한 테라스</span></div>
+            <div class="dlc-item"><img src="images/SP3.png" alt="즐거운 주방"><span class="pack-name">즐거운 주방</span></div>
+            <div class="dlc-item"><img src="images/SP4.png" alt="오싹오싹"><span class="pack-name">오싹오싹</span></div>
+            <div class="dlc-item"><img src="images/SP5.png" alt="영화보는 날"><span class="pack-name">영화보는 날</span></div>
+            <div class="dlc-item"><img src="images/SP6.png" alt="로맨틱 가든"><span class="pack-name">로맨틱 가든</span></div>
+            <div class="dlc-item"><img src="images/SP7.png" alt="키즈룸"><span class="pack-name">키즈룸</span></div>
+            <div class="dlc-item"><img src="images/SP8.png" alt="마당꾸미기"><span class="pack-name">마당 꾸미기</span></div>
+            <div class="dlc-item"><img src="images/SP9.png" alt="빈티지 홈"><span class="pack-name">빈티지 홈</span></div>
+            <div class="dlc-item"><img src="images/SP10.png" alt="즐거운 볼링"><span class="pack-name">즐거운 볼링</span></div>
+            <div class="dlc-item"><img src="images/SP11.png" alt="피트니스"><span class="pack-name">피트니스</span></div>
+            <div class="dlc-item"><img src="images/SP12.png" alt="토들러"><span class="pack-name">토들러</span></div>
+            <div class="dlc-item"><img src="images/SP13.png" alt="빨래하는 날"><span class="pack-name">빨래하는 날</span></div>
+            <div class="dlc-item"><img src="images/SP14.png" alt="첫 반려동물"><span class="pack-name">첫 반려동물</span></div>
+            <div class="dlc-item"><img src="images/SP15.png" alt="모스키노"><span class="pack-name">모스키노</span></div>
+            <div class="dlc-item"><img src="images/SP16.png" alt="미니멀라이프"><span class="pack-name">미니멀 라이프</span></div>
+            <div class="dlc-item"><img src="images/SP17.png" alt="뚝딱뚝딱 뜨개질"><span class="pack-name">뜨개질</span></div>
+            <div class="dlc-item"><img src="images/SP18.png" alt="파라노멀"><span class="pack-name">파라노멀</span></div>
+            <div class="dlc-item"><img src="images/SP19.png" alt="우리집 셰프"><span class="pack-name">우리집 셰프</span></div>
+            <div class="dlc-item"><img src="images/SP20.png" alt="크리스탈"><span class="pack-name">크리스탈</span></div>
+        </div>
+
+        <div class="dlc-grid kit-pack">
+            <div class="dlc-item"><img src="images/TK3.png" alt="대청소의 날"><span class="pack-name">대청소의 날</span></div>
+            <div class="dlc-item"><img src="images/TK2.png" alt="컨트리 키친"><span class="pack-name">컨트리 키친</span></div>
+            <div class="dlc-item"><img src="images/TK4.png" alt="코트야드 오아시스"><span class="pack-name">코트야드</span></div>
+            <div class="dlc-item"><img src="images/TK6.png" alt="인더스트리얼 스타일"><span class="pack-name">인더스트리얼</span></div>
+            <div class="dlc-item"><img src="images/TK9.png" alt="블루밍 룸"><span class="pack-name">블루밍 룸</span></div>
+            <div class="dlc-item"><img src="images/TK11.png" alt="맥시멀 데코"><span class="pack-name">맥시멀 데코</span></div>
+            <div class="dlc-item"><img src="images/TK13.png" alt="꼬마 캠퍼"><span class="pack-name">꼬마캠퍼</span></div>
+            <div class="dlc-item"><img src="images/TK15.png" alt="화려한 사막"><span class="pack-name">화려한 사막</span></div>
+            <div class="dlc-item"><img src="images/TK16.png" alt="파스텔 팝"><span class="pack-name">파스텔팝</span></div>
+            <div class="dlc-item"><img src="images/TK17.png" alt="일상 소품"><span class="pack-name">일상소품</span></div>
+            <div class="dlc-item"><img src="images/TK19.png" alt="욕실 용품"><span class="pack-name">욕실용품</span></div>
+            <div class="dlc-item"><img src="images/TK20.png" alt="온실 가꾸기"><span class="pack-name">온실 가꾸기</span></div>
+            <div class="dlc-item"><img src="images/TK21.png" alt="지하실 보물"><span class="pack-name">지하실 보물</span></div>
+            <div class="dlc-item"><img src="images/TK23.png" alt="책 읽는 공간"><span class="pack-name">책읽는 공간</span></div>
+            <div class="dlc-item"><img src="images/TK25.png" alt="모던 럭셔리"><span class="pack-name">모던 럭셔리</span></div>
+        </div>
+        
+        <div class="dlc-grid kit-pack">
+            <div class="dlc-item"><img src="images/TK26.png" alt="중세의 성"><span class="pack-name">중세의 성</span></div>
+            <div class="dlc-item"><img src="images/TK29.png" alt="파티 용품"><span class="pack-name">파티용품</span></div>
+            <div class="dlc-item"><img src="images/TK30.png" alt="리비에라에서의 휴가"><span class="pack-name">리비에라</span></div>
+            <div class="dlc-item"><img src="images/TK31.png" alt="코지 비스트로"><span class="pack-name">코지비스트로</span></div>
+            <div class="dlc-item"><img src="images/TK32.png" alt="아티스트 스튜디오"><span class="pack-name">아티스트</span></div>
+            <div class="dlc-item"><img src="images/TK33.png" alt="동화나라 아기방"><span class="pack-name">동화나라</span></div>
+            <div class="dlc-item"><img src="images/TK35.png" alt="코지 키치"><span class="pack-name">코지키치</span></div>
+            <div class="dlc-item"><img src="images/TK36.png" alt="게이머 라이프"><span class="pack-name">게이머라이프</span></div>
+            <div class="dlc-item"><img src="images/TK37.png" alt="비밀스러운 안식처"><span class="pack-name">안식처</span></div>
+            <div class="dlc-item"><img src="images/TK38.png" alt="카사노바의 아지트"><span class="pack-name">카사노바</span></div>
+            <div class="dlc-item"><img src="images/TK39.png" alt="세련된 거실"><span class="pack-name">세련된 거실</span></div>
+            <div class="dlc-item"><img src="images/TK41.png" alt="세련된 욕실"><span class="pack-name">세련된 욕실</span></div>
+            <div class="dlc-item"><img src="images/TK43.png" alt="뚝딱뚝딱 공방"><span class="pack-name">공방</span></div>
+            <div class="dlc-item"><img src="images/TK45.png" alt="주방용품"><span class="pack-name">주방용품</span></div>
+            <div class="dlc-item"><img src="images/TK47.png" alt="농가 현관 꾸미기"><span class="pack-name">농가현관</span></div>
+            <!-- 업데이트 예정
+                <div class="dlc-item"><img src="images/placeholder_Kits.png" alt="모던 인테리어"><span class="pack-name">모던 인테리어</span></div>
+                <div class="dlc-item"><img src="images/placeholder_Kits.png" alt="건강한 한 끼"><span class="pack-name">건강한 한끼</span></div>
+            -->
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
