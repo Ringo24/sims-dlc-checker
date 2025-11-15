@@ -114,7 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         checklist.classList.add('saving-mode');
 
-        settingsUI.style.display = 'none'; 
+        const wasUIVisible = settingsUI.classList.contains('visible');
+
+        settingsUI.classList.remove('visible');
+
         openSettingsButton.style.display = 'none';
 
         html2canvas(checklist, {
@@ -136,11 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .finally(() => {
             checklist.classList.remove('saving-mode');
             
-            if (settingsUI.classList.contains('visible')) {
-                settingsUI.style.display = 'flex'; 
-            } else {
-                settingsUI.style.display = 'none'; 
+            if (wasUIVisible) {
+                settingsUI.classList.add('visible'); 
             }
+            
             openSettingsButton.style.display = 'block';
         });
     });
