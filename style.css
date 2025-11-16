@@ -47,7 +47,7 @@ body.dark-mode select {
     display: none;
 }
 
-/* (추가) UI를 보여주는 클래스 */
+/* UI를 보여주는 클래스 */
 .game-options-container.visible {
     display: flex;
 }
@@ -140,7 +140,7 @@ body.dark-mode .menu-sidebar {
 .menu-item:hover {
     background-color: #e0e0e0;
 }
-/* [수정] 활성화 시 초록색 */
+/* 활성화 시 초록색 */
 .menu-item.active {
     background-color: #46c31c; 
     color: #ffffff; /* 흰색 글씨 */
@@ -430,7 +430,7 @@ body.show-names .pack-name {
 /* =========================================
    '그림으로 저장' 전용 고정 레이아웃
    ========================================= */
-/* 1. #dlc-checklist에 .saving-mode가 붙었을 때 */
+/* #dlc-checklist에 .saving-mode가 붙었을 때 */
 #dlc-checklist.saving-mode {
     /* 너비를 1920px로 고정 (중요!) */
     width: 1920px !important; 
@@ -438,7 +438,7 @@ body.show-names .pack-name {
     z-index: 1; 
 }
 
-/* 2. .saving-mode 내부의 .dlc-grid */
+/* .saving-mode 내부의 .dlc-grid */
 .saving-mode .dlc-grid {
     /* 1920px에 맞춘 20열, 79.75px로 고정 (중요!) */
     grid-template-columns: repeat(20, 79.75px) !important; 
